@@ -5,6 +5,22 @@ const Search = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${import.meta.env.}`)
-    }
-}
+        fetch(`${import.meta.env.VITE_API_URL}/search`, {
+            method: "POST",
+            body: JSON.stringify({ searchTerm }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            props.setData(data);
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+};
+
+export default Search;
