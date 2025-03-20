@@ -1,5 +1,5 @@
 .featured-container h2 {
-    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Gradient colors */
+    background: linear-gradient(to right, #c041ff, #ff4b2b); /* Gradient colors */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2rem;
@@ -9,7 +9,7 @@
 }
 
 .featured-item {
-    background-color: #f1acd7; /* Button-like background */
+    background-color: #f0dee9; /* Button-like background */
     color: white; /* Text color */
     padding: 15px;
     border-radius: 8px;

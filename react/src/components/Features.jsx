@@ -39,9 +39,9 @@ const Features = () => {
 // export default Features;
 
 return (
-    <div className="card-container" style = {{display: 'flex', flexWrap: 'wrap', gap: '20px'}}>
+    <div className="featured-container">
         <h2>Featured Products</h2>
-        <div className="featured-grid">
+        <div className = "card-container" style = {{display: 'flex', flexWrap: 'wrap', gap: '20px'}}>
             {features.length > 0 ? (
                 features.map((feature) => (
                     <div key={feature.id} className="featured-item" onClick={() => alert(`Clicked on ${feature.name}`)}>
