@@ -1,5 +1,6 @@
 import React from 'react'
-import img from "../assets/homeBackground.jpg"
+import img from "../assets/lips.png"
+
 import Features from './Features'
 
 
