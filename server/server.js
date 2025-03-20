@@ -8,6 +8,7 @@ dotenv.config();
 const url = process.env.MONGO_DB_URL;
 const dbName = process.env.MONGO_DB;
 const collectionName = process.env.MONGO_DB_COLLECTION;
+const cartName = process.env.MONGO_DB_CART;
 
 const app = express();
 app.use(cors());
@@ -35,7 +36,7 @@ app.get('/allProducts', async (req, res) => {
     }
 });
 
-app.post('/search', async (req, res) => {
+app.post('/allProducts/search', async (req, res) => {
     try {
         const { searchTerm } = req.body;
         const client = await MongoClient.connect(url);
@@ -67,6 +68,39 @@ app.get('/allProducts/:id', async (req, res) => {
     } catch (err) {
         console.error('Error:', err);
         res.status(500).send('Error finding this item');
+    }
+});
+
+app.post('/allProducts/', async (req, res) => {
+    try {
+        let{ product:newItem, quantity } = req.body;
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(cartName);
+        newItem = {...newItem, quantity:quantity};
+        const result = await collection.insertOne(newItem);
+        res.status(201).send(`{"_id":"${result.insertedId}"}`);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Insert Error');
+    }
+});
+
+app.delete('/allProducts/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(cartName);
+        const result = await collection.deleteOne({ _id: new ObjectId(id) });
+        if (result.deletedCount === 1) {
+            res.status(200).send('Item deleted successfully');
+        } else {
+            res.status(404).send('Item not found');
+        }
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Deletion error');
     }
 });
 
