@@ -7,7 +7,7 @@ import Home from "./components/Home"
 import About from "./components/About"
 import Shop from "./components/Shop"
 import ProductList from "./components/ProductList"
-import Features from "./components/FeaturedProducts"
+import Features from "./components/Features"
 import Cosmetic from "./components/Cosmetic"
 
 import {
@@ -20,7 +20,6 @@ import {
 function App() {
 
   const[data, setData] = useState([]);
-  const[id, setId] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,23 +37,6 @@ function App() {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const fetchId = async () => {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/:id`);
-            if (!response.ok) {
-              throw new Error('Data could not be fetched!');
-            }
-            const json_response = await response.json();
-            setId(json_response);
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
-    };
-
-    fetchId();
-  }, [])
 
   return (
     <>
@@ -89,7 +71,7 @@ function App() {
             <Route exact path = "/" element = {<Home />} />
             <Route path = "/about" element = {<About />} />
             <Route exact path = "/shop" element = {<Shop data = {data}/>} />
-            <Route path = "/shop/:id" element = {<Cosmetic data = {id}/>} />
+            <Route path = "/shop/:id" element = {<Cosmetic/>} />
           </Routes> 
         </div>
       </main>
