@@ -6,6 +6,8 @@ import Search from "./components/Search"
 import Home from "./components/Home"
 import About from "./components/About"
 import Shop from "./components/Shop"
+import ProductList from "./components/ProductList"
+import Features from "./components/FeaturedProducts"
 
 import {
   BrowserRouter as Router,
@@ -40,7 +42,8 @@ function App() {
     <Router>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <h1>LOREM IPSUM</h1>
+          <h1>Welcome to Glamour Beauty</h1>
+          <Features />
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -75,5 +78,6 @@ function App() {
     </>
   )
 }
+
 
 export default App

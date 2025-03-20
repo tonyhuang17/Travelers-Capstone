@@ -12,7 +12,7 @@ const collectionName = process.env.MONGO_DB_COLLECTION;
 const app = express();
 app.use(cors());
 app.use(express.json());
-const PORT = 3000;
+const PORT = 5000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
@@ -30,3 +30,4 @@ app.get('/allProducts', async (req, res) => {
         res.status(500).send("Couldn't find products");
     }
 });
+
