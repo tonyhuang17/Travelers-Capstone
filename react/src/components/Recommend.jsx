@@ -30,9 +30,19 @@ const Recommend = ({productId}) => {
     return (
         <div>
             <h2>Recommended Products</h2>
-           
+            {predictions.length > 0 ? (
+                <ul>
+                    {predictions.map(product => (
+                        <li key={product.id}>
+                            {product.name} - {product.brand} - ${product.price}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No recommendations available.</p>
+            )}
 
-            Hello
+
         </div>
     );
 };
