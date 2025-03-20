@@ -8,7 +8,11 @@ import About from "./components/About"
 import Shop from "./components/Shop"
 import Recommend from "./components/Recommend"
 import Features from "./components/Features"
+import ProductList from "./components/ProductList"
+import Features from "./components/Features"
+import Layout from "./components/Layout"
 import Cosmetic from "./components/Cosmetic"
+import Cart from "./components/Cart"
 
 import {
   BrowserRouter as Router,
@@ -20,7 +24,6 @@ import {
 function App() {
 
   const[data, setData] = useState([]);
-  const[id, setId] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,23 +41,6 @@ function App() {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const fetchId = async () => {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/:id`);
-            if (!response.ok) {
-              throw new Error('Data could not be fetched!');
-            }
-            const json_response = await response.json();
-            setId(json_response);
-        } catch (error) {
-            console.error('Error fetching product:', error);
-        }
-    };
-
-    fetchId();
-  }, [])
 
   return (
     <>
@@ -86,10 +72,13 @@ function App() {
       <main>
         <div>
           <Routes>
-            <Route exact path = "/" element = {<Home />} />
-            <Route path = "/about" element = {<About />} />
-            <Route exact path = "/shop" element = {<Shop data = {data}/>} />
-            <Route path = "/shop/:id" element = {<Cosmetic data = {id}/>} />
+            <Route path = '/' element = {<Layout />}>
+              <Route exact path = "/" element = {<Home />} />
+              <Route path = "/about" element = {<About />} />
+              <Route exact path = "/shop" element = {<Shop data = {data}/>} />
+              <Route path = "/shop/:id" element = {<Cosmetic/>} />
+              <Route path = "/cart" element = {<Cart/>} />
+            </Route>
           </Routes> 
         </div>
       </main>
