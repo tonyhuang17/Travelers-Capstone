@@ -2,6 +2,7 @@ import React from 'react'
 import img from "../assets/homeBackground.jpg"
 import Features from './Features'
 
+
 const Home = () => {
     return (
         <div style = {{backgroundImage: `url(${img})`}}>
@@ -12,3 +13,4 @@ const Home = () => {
 };
 
 export default Home;
+

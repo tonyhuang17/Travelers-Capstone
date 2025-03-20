@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const FeaturedProducts = () => {
-    const [featuredProducts, setFeaturedProducts] = useState([]);
+const Features = () => {
+    const [Features, setFeatures] = useState([]);
 
     // Fetch products and select 10 random ones
     useEffect(() => {
@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
             .then(response => response.json())
             .then(data => {
                 const shuffled = data.sort(() => 0.5 - Math.random()); // Shuffle array
-                setFeaturedProducts(shuffled.slice(0, 10)); // Pick 10 random products
+                setFeatures(shuffled.slice(0, 10)); // Pick 10 random products
             })
             .catch(error => console.error("Error fetching featured products:", error));
     }, []);
@@ -34,5 +34,5 @@ const FeaturedProducts = () => {
     );
 };
 
-export default FeaturedProducts;
+export default Features;
 

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import "./Cosmetic.css";
 import Cart from "./Cart";
+import Recommend from "./Recommend"
 
 const Cosmetic = () => {
     const { id } = useParams();
@@ -67,6 +68,7 @@ const Cosmetic = () => {
             <button className = "btn" onClick = {handleClick}>Add to Cart</button>
             <button className = "btn" onClick = {handlePlusClick}>+</button>
             <div>{count}</div>
+            <Recommend productId = {product?.id} />
         </div>
     )
 }
