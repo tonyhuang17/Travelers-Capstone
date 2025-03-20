@@ -6,7 +6,7 @@ const ProductList = () => {
 
     // Fetch products from Flask API using fetch()
     useEffect(() => {
-        fetch("http://localhost:5000/")
+        fetch("http://localhost:5000/recommend")
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error("Error fetching products:", error));

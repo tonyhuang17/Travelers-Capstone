@@ -6,8 +6,8 @@ import Search from "./components/Search"
 import Home from "./components/Home"
 import About from "./components/About"
 import Shop from "./components/Shop"
-import ProductList from "./components/ProductList"
-import Features from "./components/FeaturedProducts"
+import Recommend from "./components/Recommend"
+import Features from "./components/Features"
 import Cosmetic from "./components/Cosmetic"
 
 import {

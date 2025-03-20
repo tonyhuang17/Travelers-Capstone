@@ -12,7 +12,7 @@ const collectionName = process.env.MONGO_DB_COLLECTION;
 const app = express();
 app.use(cors());
 app.use(express.json());
-const PORT = 5000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
@@ -35,7 +35,7 @@ app.get('/allProducts', async (req, res) => {
     }
 });
 
-app.post('/allProducts/search', async (req, res) => {
+app.post('/search', async (req, res) => {
     try {
         const { searchTerm } = req.body;
         const client = await MongoClient.connect(url);

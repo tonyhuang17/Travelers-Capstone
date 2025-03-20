@@ -2,21 +2,24 @@ from flask import Flask, request, jsonify, render_template
 import os
 import pandas as pd
 import joblib
+from flask_cors import CORS
 
 
 df = pd.read_json("updated_products.json")
 features = ["price", "rating", "category", "brand"]
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
-def home():
-    return render_template("index.html", products=df[["id", "name", "brand", "category", "price"]].to_dict(orient="records"))
-
-@app.route("/recommend", methods=["GET"])
+@app.route("/recommend", methods=["POST"])
 def recommend_products():
-    """API endpoint to recommend similar products."""
-    product_id = request.args.get("product_id")
+    body = request.get_json()
+    # parsed_data = json.loads(body)
+
+
+    product_id = body.get("product_id")
+
+    print(product_id)
 
     if not product_id:
         return jsonify({"error": "Please provide a product_id parameter"}), 400
