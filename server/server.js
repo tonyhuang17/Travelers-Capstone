@@ -69,3 +69,4 @@ app.get('/allProducts/:id', async (req, res) => {
         res.status(500).send('Error finding this item');
     }
 });
+

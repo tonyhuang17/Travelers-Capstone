@@ -6,6 +6,8 @@ import Search from "./components/Search"
 import Home from "./components/Home"
 import About from "./components/About"
 import Shop from "./components/Shop"
+import ProductList from "./components/ProductList"
+import Features from "./components/FeaturedProducts"
 import Cosmetic from "./components/Cosmetic"
 
 import {
@@ -57,29 +59,28 @@ function App() {
   return (
     <>
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className = "navbar-brand" href='#'>LOREM IPSUM</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className = "navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className = "nav-link" to = "/shop">
-                Shop
-              </Link>
-            </li>
-          </ul>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <h1>LOREM IPSUM</h1>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className = "nav-link" to = "/shop">
+                  Shop
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
       <main>
@@ -96,5 +97,6 @@ function App() {
     </>
   )
 }
+
 
 export default App
