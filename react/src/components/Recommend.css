@@ -5,16 +5,16 @@
 
 .recommend-grid {
     display: flex;
-    justify-content: center; /* Center-align the row */
-    gap: 20px; /* Space between squares */
+    justify-content: center; 
+    gap: 20px; 
     padding: 20px;
-    flex-wrap: nowrap; /* Prevents wrapping to a second row */ }
+    flex-wrap: nowrap; }
 
 .recommend-item {
-    background-color: #f4a9d2; /* Green background */
+    background-color: #f4a9d2; 
     color: white;
-    width: 200px; /* Fixed width */
-    height: 200px; /* Fixed height to maintain square shape */
+    width: 200px; 
+    height: 200px; 
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -29,11 +29,11 @@
 }
 
 .recommend-item:hover {
-    background-color: #f2add3; /* Darker green on hover */
+    background-color: #f2add3; 
     transform: scale(1.05);
 }
 
-/* Image inside square */
+
 .recommend-image {
     width: 80px;
     height: 80px;
@@ -42,29 +42,29 @@
     margin-bottom: 10px;
 }
 
-/* Product name with wrapping */
+
 .recommend-item h3 {
     font-size: 1rem;
     text-align: center;
     width: 100%;
-    height: 40px; /* Fixed height */
+    height: 40px; 
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Wrap to max 2 lines */
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
     word-break: break-word;
     margin: 5px 0;
 }
 
-/* Adjust brand and price */
+
 .recommend-item p {
     font-size: 0.9rem;
     margin: 5px 0;
 }
 
-/* Ensure proper spacing on smaller screens */ @media (max-width: 1024px) {
+ @media (max-width: 1024px) {
     .recommend-grid {
-        flex-wrap: wrap; /* Allows wrapping if needed on smaller screens */
+        flex-wrap: wrap; 
         justify-content: center;
     }
 }
@@ -78,7 +78,7 @@
 
 @media (max-width: 480px) {
     .recommend-grid {
-        flex-direction: column; /* Stack vertically on mobile */
+        flex-direction: column; 
     }
 }
 

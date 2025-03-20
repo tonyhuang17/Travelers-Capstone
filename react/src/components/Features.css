@@ -1,5 +1,5 @@
 .featured-container h2 {
-    background: linear-gradient(to right, #ff41f6, #e277e8); /* Gradient colors */
+    background: linear-gradient(to right, #ff41f6, #e520a6); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2rem;
@@ -16,7 +16,7 @@
 }
 
 .featured-item {
-    background-color: #f8cdf3; /* Button-like background */
+    background-color: #f8cdf3; 
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -25,8 +25,8 @@
     cursor: pointer;
     border: none;
     text-decoration: none;
-    width: 200px; /* Ensures all buttons are same width */
-    height: 250px; /* Ensures all buttons are same height */
+    width: 200px; 
+    height: 250px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,26 +41,26 @@
 
 /* Image inside button */
 .featured-item img {
-    width: 100px; /* Fixed image size */
+    width: 100px; 
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-/* Ensuring the product name wraps but does not overflow */ .featured-item h3 {
+.featured-item h3 {
     font-size: 1rem;
     text-align: center;
     width: 100%;
-    height: 40px; /* Fixed height to keep all buttons same size */
+    height: 40px; 
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Wrap to max 2 lines */
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
     word-break: break-word;
     margin: 5px 0;
 }
 
-/* Adjust brand and price spacing */
+
 .featured-item p {
     font-size: 0.9rem;
     margin: 5px 0;
