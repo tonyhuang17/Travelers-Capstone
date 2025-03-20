@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import "./Recommend.css"
 
 const Recommend = ({productId}) => {
     const [predictions, setPredictions] = useState([]);
@@ -27,24 +28,47 @@ const Recommend = ({productId}) => {
         
     }, [productId]);
 
-    return (
-        <div>
-            <h2>Recommended Products</h2>
+//     return (
+//         <div>
+//             <h2>Recommended Products</h2>
+//             {predictions.length > 0 ? (
+//                 <ul>
+//                     {predictions.map(product => (
+//                         <li key={product.id}>
+//                             {product.name} - {product.brand} - ${product.price}
+//                         </li>
+//                     ))}
+//                 </ul>
+//             ) : (
+//                 <p>No recommendations available.</p>
+//             )}
+
+
+//         </div>
+//     );
+// };
+
+// export default Recommend;
+
+return (
+    <div className="recommend-container">
+        <h2>Recommended Products</h2>
+        <div className="recommend-grid">
             {predictions.length > 0 ? (
-                <ul>
-                    {predictions.map(product => (
-                        <li key={product.id}>
-                            {product.name} - {product.brand} - ${product.price}
-                        </li>
-                    ))}
-                </ul>
+                predictions.map(product => (
+                    <div key={product.id} className="recommend-item">
+                        <img src = {predictions?.api_featured_image} width = {100} height = {100}/>
+                        <h3>{product.name}</h3>
+                        <p>{product.brand}</p>
+                        <p>${product.price}</p>
+                    </div>
+                ))
             ) : (
                 <p>No recommendations available.</p>
             )}
-
-
         </div>
-    );
+    </div>
+);
 };
 
 export default Recommend;
