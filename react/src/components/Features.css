@@ -1,0 +1,66 @@
+.featured-container h2 {
+    background: linear-gradient(to right, #ff416c, #ff4b2b); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.featured-item {
+    background-color: #f1acd7; /* Button-like background */
+    color: white; /* Text color */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove default text underline */ }
+
+.featured-item:hover {
+    background-color: #f68ad6; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling effect */ }
+
+/* Ensure images inside buttons look good */ .featured-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Optional: Style text inside buttons */ .featured-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.featured-item p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
