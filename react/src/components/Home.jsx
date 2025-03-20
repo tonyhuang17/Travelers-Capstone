@@ -7,7 +7,7 @@ import Features from './Features'
 const Home = () => {
     return (
         <div style = {{backgroundImage: `url(${img})`}}>
-            <h1>HOMEPAGE</h1>
+            <h1>Welcome to Glamour Beauty</h1>
             <Features />
         </div>
     );
