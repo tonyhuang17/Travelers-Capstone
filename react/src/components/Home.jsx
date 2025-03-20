@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div style = {{backgroundImage: `url(${img})`}}>
             <h1>HOMEPAGE</h1>
-            <Features/>
+            <Features />
         </div>
     );
 };
