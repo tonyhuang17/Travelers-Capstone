@@ -26,8 +26,22 @@ const Cosmetic = () => {
         fetchProduct();
     }, [id]);
 
-    const handleClick = () => {
-        
+    const handleClick = (e) => {
+            e.preventDefault();
+            fetch(`http://localhost:3000/allProducts`, {
+                method: "POST",
+                body: JSON.stringify({ product, quantity:count }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     const handlePlusClick = () => {
@@ -53,6 +67,7 @@ const Cosmetic = () => {
             <button className = "btn" onClick = {handleMinusClick}>-</button>
             <button className = "btn" onClick = {handleClick}>Add to Cart</button>
             <button className = "btn" onClick = {handlePlusClick}>+</button>
+            <div>{count}</div>
             <Recommend productId = {product?.id} />
         </div>
     )
