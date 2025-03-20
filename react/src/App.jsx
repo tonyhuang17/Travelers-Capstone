@@ -8,7 +8,9 @@ import About from "./components/About"
 import Shop from "./components/Shop"
 import ProductList from "./components/ProductList"
 import Features from "./components/Features"
+import Layout from "./components/Layout"
 import Cosmetic from "./components/Cosmetic"
+import Cart from "./components/Cart"
 
 import {
   BrowserRouter as Router,
@@ -68,10 +70,13 @@ function App() {
       <main>
         <div>
           <Routes>
-            <Route exact path = "/" element = {<Home />} />
-            <Route path = "/about" element = {<About />} />
-            <Route exact path = "/shop" element = {<Shop data = {data}/>} />
-            <Route path = "/shop/:id" element = {<Cosmetic/>} />
+            <Route path = '/' element = {<Layout />}>
+              <Route exact path = "/" element = {<Home />} />
+              <Route path = "/about" element = {<About />} />
+              <Route exact path = "/shop" element = {<Shop data = {data}/>} />
+              <Route path = "/shop/:id" element = {<Cosmetic/>} />
+              <Route path = "/cart" element = {<Cart/>} />
+            </Route>
           </Routes> 
         </div>
       </main>

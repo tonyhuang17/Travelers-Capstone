@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import "./Cosmetic.css";
+import Cart from "./Cart";
 
 const Cosmetic = () => {
     const { id } = useParams();
     const[product, setProduct] = useState();
+    const[count, setCount] = useState(0);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -22,14 +25,33 @@ const Cosmetic = () => {
         fetchProduct();
     }, [id]);
 
+    const handleClick = () => {
+        
+    }
+
+    const handlePlusClick = () => {
+        setCount(count + 1);
+    }
+
+    const handleMinusClick = () => {
+        if(count >= 1){
+            setCount(count - 1);
+        }
+    }
+
     return(
-        <div className = "card">
-            <div className = "card-body">
-                <h5 className = "card-title">{product?.name}</h5>
-                <img src = {product?.api_featured_image} width = {125} height = {125}/>
-                <div className = "card-text">{product?.price}{product?.price_sign}</div>
-                <div className = "card-text">Rating: {product?.rating}</div>
+        <div>
+            <div className = "card">
+                <div className = "card-body">
+                    <h5 className = "card-title">{product?.name}</h5>
+                    <img src = {product?.api_featured_image} width = {125} height = {125}/>
+                    <div className = "card-text">{product?.price_sign}{product?.price}</div>
+                    <div className = "card-text">Rating: {product?.rating}</div>
+                </div>
             </div>
+            <button className = "btn" onClick = {handleMinusClick}>-</button>
+            <button className = "btn" onClick = {handleClick}>Add to Cart</button>
+            <button className = "btn" onClick = {handlePlusClick}>+</button>
         </div>
     )
 }

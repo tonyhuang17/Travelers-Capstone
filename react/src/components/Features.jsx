@@ -19,11 +19,11 @@ const FeaturedProducts = () => {
             <h2>Featured Products</h2>
             <div className="featured-list">
                 {featuredProducts.length > 0 ? (
-                    featuredProducts.map(product => (
-                        <div key={product.id} className="featured-item">
-                            <h3>{product.name}</h3>
-                            <p>{product.brand}</p>
-                            <p>${product.price}</p>
+                    featuredProducts.map(featuredProducts => (
+                        <div key={featuredProducts.id} className="featured-item">
+                            <h3>{featuredProducts.name}</h3>
+                            <p>{featuredProducts.brand}</p>
+                            <p>${featuredProducts.price}</p>
                         </div>
                     ))
                 ) : (
