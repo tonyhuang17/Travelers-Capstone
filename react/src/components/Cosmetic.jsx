@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import "./Cosmetic.css";
-import Cart from "./Cart";
 import Recommend from "./Recommend"
 
 const Cosmetic = () => {
@@ -56,19 +55,29 @@ const Cosmetic = () => {
 
     return(
         <div>
-            <div className = "card">
-                <div className = "card-body">
-                    <h5 className = "card-title">{product?.name}</h5>
-                    <img src = {product?.api_featured_image} width = {125} height = {125}/>
-                    <div className = "card-text">{product?.price_sign}{product?.price}</div>
-                    <div className = "card-text">Rating: {product?.rating}</div>
+            <div className = 'containerLarge bottomSpace'>
+                <div className = "left">
+                    <img src = {product?.api_featured_image} width = {400} height = {400}/>
+                </div>
+                <div className = 'right'>
+                    <div className = 'medium left'>
+                        <h5 className = "card-title-text playfair bottomSpace">{product?.name}</h5>
+                        <div className = 'bottomSpace'>________________________________________</div>
+                        <div className = "other-text bottomSpace">{product?.price_sign}{product?.price}</div>
+                        <div className = "other-text bottomSpace">Review: {product?.rating}/5</div>
+                        <div className = 'bottomSpace'>________________________________________</div>
+                        <div className = 'description'>{product?.description}</div>
+                    </div>
+                    <div className = 'right'>
+                        <button className = "btn btn-outline-success" onClick = {handleMinusClick}>-</button>
+                        <button className = "btn btn-outline-success bottom" onClick = {handleClick}>Add to Cart: {count}</button>
+                        <button className = "btn btn-outline-success" onClick = {handlePlusClick}>+</button>
+                    </div>
                 </div>
             </div>
-            <button className = "btn" onClick = {handleMinusClick}>-</button>
-            <button className = "btn" onClick = {handleClick}>Add to Cart</button>
-            <button className = "btn" onClick = {handlePlusClick}>+</button>
-            <div>{count}</div>
-            <Recommend productId = {product?.id} />
+            <div className = 'containerLarge'>
+                <Recommend productId = {product?.id} />
+            </div>
         </div>
     )
 }

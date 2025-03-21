@@ -47,4 +47,31 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  background-color: palevioletred;
+}
+
+button{
+  border: transparent;
+  background-color: transparent;
+  font-size: x-large;
+  font-weight: bold;
+  font-family:'Courier New', Courier, monospace ;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  background-color: purple; 
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+body {
+  padding-top: 150px;
+}
+
+.playfair {
+  font-family: 'Playfair Display', serif;
 }

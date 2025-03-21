@@ -36,16 +36,31 @@ app.get('/allProducts', async (req, res) => {
     }
 });
 
+app.get('/allProducts/Cart', async (req, res) => {
+    try {
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(cartName);
+        const products = await collection.find({}).toArray();
+        if (products) {
+            res.json(products);
+        } else {
+            res.status(404).send('Item not found');
+        }
+    } catch (err) {
+        console.error("Error:", err);
+        res.status(500).send("Couldn't find products");
+    }
+});
+
 app.post('/allProducts/search', async (req, res) => {
     try {
         const { searchTerm } = req.body;
         const client = await MongoClient.connect(url);
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
-        const regex = new RegExp(searchTerm, 'i'); // Create a case-insensitive regular expression
-        const products = await collection.find({ 'name': regex }).toArray();
-        products.push(await collection.find({'product_type': regex}).toArray());
-        products.push(await collection.find({'category': regex}).toArray());
+        const regex = new RegExp(searchTerm, 'i');
+        let products = await collection.find({'name': regex}).toArray();
         res.json(products);
     } catch (err) {
         console.error('Error:', err);
@@ -83,6 +98,27 @@ app.post('/allProducts/', async (req, res) => {
     } catch (err) {
         console.error('Error:', err);
         res.status(500).send('Insert Error');
+    }
+});
+
+app.put('/cartProducts/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { newQuantity } = req.body;
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(cartName);
+        const result = await collection.updateOne(
+            {id: Number(id)},
+            {$set: {quantity: newQuantity}}
+        );
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Cart item not found or no change made.' });
+        }
+        res.status(200).json({ message: 'Cart quantity updated successfully' });
+    } catch (err) {
+        console.error('Error updating cart:', err);
+        res.status(500).json({ error: 'An error occurred while updating the cart.' });
     }
 });
 
