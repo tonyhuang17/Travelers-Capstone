@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import './Recommend.css';
 
+
+
 const Recommend = ({productId}) => {
     const [predictions, setPredictions] = useState([]);
 

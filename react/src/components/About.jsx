@@ -3,10 +3,10 @@ import './About.css';
 
 const About = () => {
     return (
-      <div className="about-container imageBackGround">
+      <div className="about-container ">
         {/* Header Section */}
         <header className="about-header">
-          <h1>Introducing Lorem Ipsum</h1>
+          <h1>Introducing Glamuor Beauty</h1>
           <p>Your journey to beauty and confidence starts here</p>
         </header>
   
@@ -14,17 +14,18 @@ const About = () => {
         <section className="company-story">
           <h2>Our Story</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac
-            convallis turpis. Nunc fringilla ipsum eu mi lacinia, sed cursus urna
-            tincidunt. Fusce sit amet egestas purus. Vivamus suscipit gravida odio
-            in maximus. Aliquam erat volutpat. Nulla viverra ante orci, eu congue
-            ligula pellentesque eget. 
+          Once upon a time in the wild world of online beauty shopping…
+          there lived a curious shopper named Lina.
+Lina wanted the perfect foundation. One that didn’t oxidize, didn’t cake, and—please!—didn’t make her look like she was prepping for clown school. She tried product after product, read reviews until her eyes blurred, and still ended up with a drawer full of “meh.”
+She wasn’t alone.
+Thousands like Lina faced the same problem: endless choices, zero clarity.
+That’s when we stepped in—with a bold mission:
+💄 Make beauty smart.
+🤖 Make recommendations personal.
+
+ 
           </p>
-          <p>
-            Sed auctor erat sit amet felis congue, ac vestibulum dui iaculis.
-            Aliquam eu sapien nec dui lacinia tristique. Nunc posuere nisl ac purus
-            convallis suscipit. In nec maximus turpis.
-          </p>
+          
         </section>
   
         {/* Our Values */}
@@ -38,17 +39,11 @@ const About = () => {
           </ul>
         </section>
   
-        {/* Mission Statement */}
-        <section className="mission-statement">
-          <h2>Our Mission</h2>
-          <p>
-            At Lorem Ipsum, we believe that makeup is more than just a way to enhance your beauty – it’s a way to express yourself, feel confident, and celebrate your individuality. Our mission is to create high-performance products that help you look and feel your best, every day.
-          </p>
-        </section>
+       
   
         {/* Call to Action */}
         <section className="cta-section">
-          <h2>Join the Lorem Ipsum Family</h2>
+          <h2></h2>
           <p>
             Ready to discover the world of Lorem Ipsum? Our products are made for everyone, no matter your age, skin tone, or personal style. Explore our collections today and find your perfect match.
           </p>
