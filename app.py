@@ -16,7 +16,6 @@ def recommend_products():
     body = request.get_json()
     # parsed_data = json.loads(body)
 
-
     product_id = body.get("product_id")
 
     print(product_id)

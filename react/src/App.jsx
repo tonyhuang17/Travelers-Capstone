@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import item_data from './assets/updated_products.json'
 import Item from "./components/Item"
+import History from "./components/History"
 import Search from "./components/Search"
 import Home from "./components/Home"
 import About from "./components/About"
@@ -13,6 +14,7 @@ import Layout from "./components/Layout"
 import Cosmetic from "./components/Cosmetic"
 import Cart from "./components/Cart"
 import iconCart from "./assets/iconCart.png"
+import clipboard from "./assets/clipboard.png"
 import LoginForm from "./components/LoginForm"
 import RequireAuth from "./components/RequireAuth"
 import { AuthProvider } from "./hooks/AuthContext"
@@ -29,6 +31,7 @@ function App() {
 
   const[data, setData] = useState([]);
   const[cartInfo, setCartInfo] = useState([]);
+  const[history, setHistory] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,6 +68,23 @@ function App() {
     fetchCartInfo();
   }, [cartInfo]);
 
+  useEffect(() => {
+    const fetchHistory= async () => {
+        try {
+            const response = await fetch("http://localhost:3000/History");
+            if (!response.ok) {
+                throw new Error('Data could not be fetched!');
+            }
+            const json_response = await response.json();
+            setHistory(json_response);
+        } catch (error) {
+            console.error('Error fetching history:', error);
+        }
+    };
+
+    fetchHistory();
+  }, [history]);
+
   return (
     <>
     <Router>
@@ -95,8 +115,15 @@ function App() {
               </li>
               <li className = "nav-item">
                 <Link className = 'nav-link' to='/cart'>
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: '225px'}}>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: '175px'}}>
                     <img src={iconCart} alt = "" width={50} height={50}/>
+                  </div>
+                </Link>
+              </li>
+              <li className = "nav-item">
+                <Link className = 'nav-link' to='/history'>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
+                    <img src={clipboard} alt = "" width={50} height={50}/>
                   </div>
                 </Link>
               </li>
@@ -116,6 +143,7 @@ function App() {
               <Route path = "/shop/search" element = {<Shop data = {data}/>}/>
               <Route path="/login" element={<LoginForm />} />
               <Route path="/category" element = {<Category />} />
+              <Route path = "/history" element = {<History data = {history}/>} />
           </Routes> 
         </div>
       </main>

@@ -53,6 +53,23 @@ app.get('/allProducts/Cart', async (req, res) => {
     }
 });
 
+app.get('/History', async (req, res) => {
+    try {
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection('history');
+        const products = await collection.find({}).toArray();
+        if (products) {
+            res.json(products);
+        } else {
+            res.status(404).send('Item not found');
+        }
+    } catch (err) {
+        console.error("Error:", err);
+        res.status(500).send("Couldn't find products");
+    }
+});
+
 app.post('/allProducts/product_type', async (req, res) => {
     try {
         const { product_type } = req.body;
