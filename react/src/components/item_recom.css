@@ -1,0 +1,56 @@
+/* Container that holds all recommended items */ 
+.recommend-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* Each product card */
+.recommend-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.recommend-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    width: 180px;
+    min-width: 180px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.recommend-card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 16px;
+    margin: 10px 0;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.price-rating {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: #d63384;
+}
+
+.rating {
+    color: #555;
+}
+
