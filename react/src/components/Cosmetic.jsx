@@ -63,7 +63,7 @@ const Cosmetic = () => {
                     <div className = 'medium left'>
                         <h5 className = "card-title-text playfair bottomSpace">{product?.name}</h5>
                         <div className = 'bottomSpace'>________________________________________</div>
-                        <div className = "other-text bottomSpace">{product?.price_sign}{product?.price}</div>
+                        <div className = "other-text bottomSpace">Price: {product?.price_sign}{product?.price}</div>
                         <div className = "other-text bottomSpace">Review: {product?.rating}/5</div>
                         <div className = 'bottomSpace'>________________________________________</div>
                         <div className = 'description'>{product?.description}</div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Item from './Item'
+import './Recommend.css';
 
 const Recommend = ({productId}) => {
     const [predictions, setPredictions] = useState([]);
@@ -32,7 +33,7 @@ const Recommend = ({productId}) => {
         <div>
             <h2>If You Like This, We Recommend</h2>
             {predictions.length > 0 ? (
-                <div className = 'card-container'>
+                <div className = 'class-container'>
                     {predictions.map(product => (
                         <Item key = {product.id} data = {product} />
                     ))}
@@ -40,8 +41,6 @@ const Recommend = ({productId}) => {
             ) : (
                 <p>No recommendations available.</p>
             )}
-
-
         </div>
     );
 };

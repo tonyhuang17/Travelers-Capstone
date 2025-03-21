@@ -15,7 +15,8 @@ import Cart from "./components/Cart"
 import iconCart from "./assets/iconCart.png"
 import LoginForm from "./components/LoginForm"
 import RequireAuth from "./components/RequireAuth"
-import { AuthProvider } from "./hooks/AuthContext";
+import { AuthProvider } from "./hooks/AuthContext"
+import Category from "./components/Category"
 
 import {
   BrowserRouter as Router,
@@ -88,8 +89,8 @@ function App() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className = "nav-link" to = "/categories">
-                  <button className = 'button'>Categories</button>
+                <Link className = "nav-link" to = "/category">
+                  <button className = 'button'>Category</button>
                 </Link>
               </li>
               <li className = "nav-item">
@@ -114,6 +115,7 @@ function App() {
               <Route path = "/cart" element = {<Cart data = {cartInfo}/>} />
               <Route path = "/shop/search" element = {<Shop data = {data}/>}/>
               <Route path="/login" element={<LoginForm />} />
+              <Route path="/category" element = {<Category />} />
           </Routes> 
         </div>
       </main>

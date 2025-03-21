@@ -4,14 +4,15 @@ import './Cosmetic.css'
 
 const CartItem = (props) => {
     const[count, setCount] = useState(props.data.quantity);
+    const[totalPrice, setTotalPrice] = useState(props.data.quantity * props.data.price);
 
     const handlePlusClick = (e) => {
         setCount(count + 1);
-        console.log(count);
+        setTotalPrice((prevTotal) => prevTotal + props.data.price);
         e.preventDefault();
         fetch(`http://localhost:3000/cartProducts/${props.data.id}`, {
             method: "PUT",
-            body: JSON.stringify(count),
+            body: JSON.stringify({newQuantity: count + 1}),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -28,11 +29,11 @@ const CartItem = (props) => {
     const handleMinusClick = (e) => {
         if(count >= 1){
             setCount(count - 1);
-
+            setTotalPrice((prevTotal) => prevTotal - props.data.price)
             e.preventDefault();
             fetch(`http://localhost:3000/cartProducts/${props.data.id}`, {
                 method: "PUT",
-                body: JSON.stringify(count),
+                body: JSON.stringify({newQuantity: count - 1}),
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -44,7 +45,7 @@ const CartItem = (props) => {
             .catch((error) => {
                 console.error(error);
             });
-        }
+        } 
     }
 
     return (

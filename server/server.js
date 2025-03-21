@@ -53,6 +53,21 @@ app.get('/allProducts/Cart', async (req, res) => {
     }
 });
 
+app.post('/allProducts/product_type', async (req, res) => {
+    try {
+        const { product_type } = req.body;
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(collectionName);
+        const regex = new RegExp(product_type, 'i');
+        let products = await collection.find({'product_type': regex}).toArray();
+        res.json(products);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Error finding items');
+    }
+});
+
 app.post('/allProducts/search', async (req, res) => {
     try {
         const { searchTerm } = req.body;
@@ -101,10 +116,25 @@ app.post('/allProducts/', async (req, res) => {
     }
 });
 
+app.post('/totalCart/', async (req, res) => {
+    try {
+        let{ totalPrice } = req.body;
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection('history');
+        const result = await collection.insertOne({totalPrice});
+        res.status(201).send("Successful");
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Insert Error');
+    }
+})
+
 app.put('/cartProducts/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { newQuantity } = req.body;
+        console.log({newQuantity});
         const client = await MongoClient.connect(url);
         const db = client.db(dbName);
         const collection = db.collection(cartName);
@@ -122,18 +152,13 @@ app.put('/cartProducts/:id', async (req, res) => {
     }
 });
 
-app.delete('/allProducts/:id', async (req, res) => {
+app.delete('/cartProducts/', async (req, res) => {
     try {
-        const { id } = req.params;
         const client = await MongoClient.connect(url);
         const db = client.db(dbName);
         const collection = db.collection(cartName);
-        const result = await collection.deleteOne({ _id: new ObjectId(id) });
-        if (result.deletedCount === 1) {
-            res.status(200).send('Item deleted successfully');
-        } else {
-            res.status(404).send('Item not found');
-        }
+        const result = await collection.drop();
+        res.status(200).send('Item deleted successfully');
     } catch (err) {
         console.error('Error:', err);
         res.status(500).send('Deletion error');
