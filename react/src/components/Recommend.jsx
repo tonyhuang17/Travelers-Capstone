@@ -28,6 +28,7 @@ const Recommend = ({productId}) => {
         
     }, [productId]);
 
+console.log(predictions[0]);
 
 return (
     <div className="recommend-container">
@@ -36,7 +37,7 @@ return (
             {predictions.length > 0 ? (
                 predictions.map((product) => (
                     <div key={product.id} className="recommend-item">
-                        <img src = {product?.api_featured_image} width = {125} height = {125}/>
+                        <img src={product?.api_featured_image} width={125} height={125}/>
                         <h3>{product.name}</h3>
                         <p>{product.brand}</p>
                         <p>${product.price}</p>

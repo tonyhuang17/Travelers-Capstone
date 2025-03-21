@@ -6,7 +6,7 @@ const Features = () => {
 
     // Fetch products and select 10 random ones
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}`) // Fetch from Flask API
+        fetch(`${import.meta.env.VITE_API_URL}`) 
             .then(response => response.json())
             .then(data => {
                 const shuffled = data.sort(() => 0.5 - Math.random()); // Shuffle array
