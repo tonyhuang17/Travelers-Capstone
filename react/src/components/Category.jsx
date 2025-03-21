@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import DropdownList from './DropdownList';
+import Item from './Item';
+import "./Cosmetic.css";
 
 const Category = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -23,7 +25,7 @@ const Category = () => {
 
         fetch(`http://localhost:3000/allProducts/product_type`, {
             method: "POST",
-            body: JSON.stringify(selectedCategory),
+            body: JSON.stringify({product_type: selectedCategory}),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -41,8 +43,8 @@ const Category = () => {
 
     return (
         <div>
-            <DropdownList selectedValue = {selectedCategory} onChange = {handleDropdown}/>
-            <button onClick = {handleClick} disabled = {loading}>{loading ? 'Searching...' : 'Search'}</button>
+            <DropdownList className = 'bottomSpace' selectedValue = {selectedCategory} onChange = {handleDropdown}/>
+            <button onClick = {handleClick} disabled = {loading} className = 'btn btn-success'>{loading ? 'Searching...' : 'Search'}</button>
             {error && <div style = {{ color: 'red'}}>{error}</div>}
 
             {categoryProduct.length > 0 && (
