@@ -1,0 +1,68 @@
+.featured-container h2 {
+    background: linear-gradient(to right, #ff41f6, #e520a6); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.featured-item {
+    background-color: #f3c8ed; 
+    color: rgb(16, 16, 16);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    width: 200px; 
+    height: 250px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.featured-item:hover {
+    background-color: #f66db8;
+    transform: scale(1.05);
+}
+
+/* Image inside button */
+.featured-item img {
+    width: 100px; 
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.featured-item h3 {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    height: 40px; 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    margin: 5px 0;
+}
+
+
+.featured-item p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+

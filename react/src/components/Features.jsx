@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import "./Features.css"
 
 const Features = () => {
-    const [Features, setFeatures] = useState([]);
+    const [features, setFeatures] = useState([]);
 
     // Fetch products and select 10 random ones
     useEffect(() => {
-        fetch("http://localhost:5000/") // Fetch from Flask API
+        fetch(`${import.meta.env.VITE_API_URL}`) // Fetch from Flask API
             .then(response => response.json())
             .then(data => {
                 const shuffled = data.sort(() => 0.5 - Math.random()); // Shuffle array
@@ -14,25 +15,28 @@ const Features = () => {
             .catch(error => console.error("Error fetching featured products:", error));
     }, []);
 
-    return (
-        <div className="featured-container">
-            <h2>Featured Products</h2>
-            <div className="featured-list">
-                {Features.length > 0 ? (
-                    Features.map(Features => (
-                        <div key={Features.id} className="featured-item">
-                            <h3>{Features.name}</h3>
-                            <p>{Features.brand}</p>
-                            <p>${Features.price}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>Loading featured products...</p>
-                )}
-            </div>
+
+return (
+    <div className="featured-container">
+        <h2>Featured Products</h2>
+        <div className = "card-container" style = {{display: 'flex', flexWrap: 'wrap', gap: '20px'}}>
+            {features.length > 0 ? (
+                features.map((feature) => (
+                    <div key={feature.id} className="featured-item" onClick={() => alert(`Clicked on ${feature.name}`)}>
+                        <img src = {feature?.api_featured_image} width = {125} height = {125}/>
+                        <h3>{feature.name}</h3>
+                        <p>{feature.brand}</p>
+                        <p>${feature.price}</p>
+                    </div>
+                ))
+            ) : (
+                <p>Loading featured products...</p>
+            )}
         </div>
-    );
+    </div>
+);
 };
 
 export default Features;
+
 
