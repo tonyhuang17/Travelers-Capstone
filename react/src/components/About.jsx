@@ -6,7 +6,7 @@ const About = () => {
       <div className="about-container ">
         {/* Header Section */}
         <header className="about-header">
-          <h1>Introducing Glamuor Beauty</h1>
+          <h1>Introducing Glamour Beauty</h1>
           <p>Your journey to beauty and confidence starts here</p>
         </header>
   
