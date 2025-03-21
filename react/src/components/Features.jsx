@@ -15,28 +15,6 @@ const Features = () => {
             .catch(error => console.error("Error fetching featured products:", error));
     }, []);
 
-//     return (
-//         <div className="featured-container">
-//             <h2>Featured Products</h2>
-//             <div className="featured-grid">
-//                 {features.length > 0 ? (
-//                     features.map((feature) => (
-//                         <div key={feature.id} className="featured-item">
-//                             {/* <img src={feature.image_link} alt={feature.name} className="featured-image" /> */}
-//                             <h3>{feature.name}</h3>
-//                             <p>{feature.brand}</p>
-//                             <p>${feature.price}</p>
-//                         </div>
-//                     ))
-//                 ) : (
-//                     <p>Loading featured products...</p>
-//                 )}
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Features;
 
 return (
     <div className="featured-container">

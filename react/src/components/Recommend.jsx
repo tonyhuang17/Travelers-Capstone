@@ -28,34 +28,13 @@ const Recommend = ({productId}) => {
         
     }, [productId]);
 
-//     return (
-//         <div>
-//             <h2>Recommended Products</h2>
-//             {predictions.length > 0 ? (
-//                 <ul>
-//                     {predictions.map(product => (
-//                         <li key={product.id}>
-//                             {product.name} - {product.brand} - ${product.price}
-//                         </li>
-//                     ))}
-//                 </ul>
-//             ) : (
-//                 <p>No recommendations available.</p>
-//             )}
-
-
-//         </div>
-//     );
-// };
-
-// export default Recommend;
 
 return (
     <div className="recommend-container">
         <h2>Recommended Products</h2>
         <div className="recommend-grid">
             {predictions.length > 0 ? (
-                predictions.map(product => (
+                predictions.map((product) => (
                     <div key={product.id} className="recommend-item">
                         <img src = {product?.api_featured_image} width = {125} height = {125}/>
                         <h3>{product.name}</h3>

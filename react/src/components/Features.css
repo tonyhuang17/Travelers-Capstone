@@ -16,8 +16,8 @@
 }
 
 .featured-item {
-    background-color: #f8cdf3; 
-    color: white;
+    background-color: #f3c8ed; 
+    color: rgb(16, 16, 16);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
