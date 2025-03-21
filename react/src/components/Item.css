@@ -6,4 +6,37 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+.card-text{
+  margin-bottom: 30px;
+}
+
+.bottom-text {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.bottom-left-text {
+  position: absolute;
+  bottom: 10px; /* Adjust the bottom position */
+  left: 10px; /* Adjust the left position */
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.bottom-right-text {
+  position: absolute;
+  bottom: 10px; /* Adjust the bottom position */
+  right: 10px; /* Adjust the left position */
+  font-size: x-large;
+}
+
+.card-title-text {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.playfair {
+  font-family: 'Playfair Display', serif;
+}
   

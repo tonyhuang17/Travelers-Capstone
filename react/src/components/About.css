@@ -1,0 +1,62 @@
+.about-container {
+    padding: 2rem;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .about-header p {
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  .company-story, .our-values, .mission-statement, .cta-section {
+    margin-bottom: 3rem;
+  }
+  
+  .company-story h2, .our-values h2, .mission-statement h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .our-values ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .our-values li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    background-color: #ff4f58; /* Example brand color */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cta-button:hover {
+    background-color: #e03d4e;
+  }
+
+  .imageBackGround {
+    margin: 0;
+    height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    background-image: url('../assets/homeBackground.jpg'); /* Replace with the actual image URL */
+    background-size: cover; /* Ensure the image covers the entire viewport */
+    background-position: center center; /* Position the image in the center */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; 
+}

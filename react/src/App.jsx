@@ -12,6 +12,10 @@ import Features from "./components/Features"
 import Layout from "./components/Layout"
 import Cosmetic from "./components/Cosmetic"
 import Cart from "./components/Cart"
+import iconCart from "./assets/iconCart.png"
+import LoginForm from "./components/LoginForm"
+import RequireAuth from "./components/RequireAuth"
+import { AuthProvider } from "./hooks/AuthContext";
 
 import {
   BrowserRouter as Router,
@@ -23,6 +27,7 @@ import {
 function App() {
 
   const[data, setData] = useState([]);
+  const[cartInfo, setCartInfo] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,43 +46,74 @@ function App() {
     fetchData();
   }, []);
 
+  
+  useEffect(() => {
+    const fetchCartInfo = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/allProducts/Cart");
+            if (!response.ok) {
+                throw new Error('Data could not be fetched!');
+            }
+            const json_response = await response.json();
+            setCartInfo(json_response);
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+        }
+    };
+
+    fetchCartInfo();
+  }, [cartInfo]);
+
   return (
     <>
     <Router>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <h1>LOREM IPSUM</h1>
+          <h1 className = 'playfair'>LOREM IPSUM</h1>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
-                  Home
+                  <button className = 'button' style = {{marginLeft : "300px"}}>Home</button>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">
-                  About
+                  <button className = 'button'>About</button>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className = "nav-link" to = "/shop">
-                  Shop
+                  <button className = 'button'>Shop</button>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className = "nav-link" to = "/categories">
+                  <button className = 'button'>Categories</button>
+                </Link>
+              </li>
+              <li className = "nav-item">
+                <Link className = 'nav-link' to='/cart'>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: '225px'}}>
+                    <img src={iconCart} alt = "" width={50} height={50}/>
+                  </div>
                 </Link>
               </li>
             </ul>
+            <Search setData = {setData}/>
           </div>
         </div>
       </nav>
       <main>
         <div>
           <Routes>
-            <Route path = '/' element = {<Layout />}>
               <Route exact path = "/" element = {<Home />} />
               <Route path = "/about" element = {<About />} />
               <Route exact path = "/shop" element = {<Shop data = {data}/>} />
               <Route path = "/shop/:id" element = {<Cosmetic/>} />
-              <Route path = "/cart" element = {<Cart/>} />
-            </Route>
+              <Route path = "/cart" element = {<Cart data = {cartInfo}/>} />
+              <Route path = "/shop/search" element = {<Shop data = {data}/>}/>
+              <Route path="/login" element={<LoginForm />} />
           </Routes> 
         </div>
       </main>

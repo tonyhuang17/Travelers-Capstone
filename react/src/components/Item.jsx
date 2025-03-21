@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Item.css";
+
 import {
     BrowserRouter as Router,
     Route,
@@ -15,11 +16,10 @@ const Item = (props) => {
         <Link to={link} className = "btn btn-primary">
             <div className = "card">
                 <div className = "card-body">
-                    <h5 className = "card-title">{props.data.name}</h5>
-                    <img src = {props.data.api_featured_image} width = {125} height = {125}/>
-                    <div className = "card-text">{props.data.price}{props.data.price_sign}</div>
-                    <div className = "card-text">Rating: {props.data.rating}</div>
-                    <button className = "btn">Add to Cart</button>
+                    <h5 className = "card-title-text playfair">{props.data.name}</h5>
+                    <img src = {props.data.api_featured_image} width = {100} height = {100}/>
+                    <div className = "bottom-left-text">{props.data.price_sign}{props.data.price}</div>
+                    <div className = "bottom-right-text">Review: {props.data.rating}/5</div>
                 </div>
             </div>
         </Link>
